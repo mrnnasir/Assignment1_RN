@@ -10,11 +10,11 @@ const guestCountry = document.getElementById('gCountry');
 const welcomeButton = document.getElementById('btn3');
 
 function createP2(message) {
-  let welcomeDiv = document.createElement('div');
-  welcomeDiv.classList.add('wel-div');
+  let welcomeDiv = document.createElement('div'); //Created a Div
+  welcomeDiv.classList.add('wel-div');//Div class named wel-div
 
-  let welcomeP = document.createElement('p');
-  welcomeP.classList.add('welcome');
+  let welcomeP = document.createElement('p');//Created p-tag within Div
+  welcomeP.classList.add('welcome');//Created a class for p-tag
   welcomeP.innerHTML = message;
   welcomeDiv.appendChild(welcomeP);
   document.body.appendChild(welcomeDiv);
@@ -24,7 +24,7 @@ welcomeButton.addEventListener('click', function(){
   let removeEl3 = document.getElementsByClassName('wel-div');
   [...removeEl3].forEach(el => el.remove());
 
-  if(!guestName.value.trim() && !guestCountry.value.trim()) {
+  if(!guestName.value.trim() && !guestCountry.value.trim()) { //.trim will eliminate any space
     createP2('<b><i>Please ENTER your Name and Country you are from.</i></b>')
   }
   else {
