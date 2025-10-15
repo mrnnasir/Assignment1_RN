@@ -7,12 +7,40 @@ let resorts = ['Royal Tulip Sea Pearl Beach Resort & Spa', 'Mermaid Beach Resort
 
 
 //Welcoming section----
+
 //'guestName' variable stores the data from HTML using 'gName' ID, which is used as for input purposes
 const guestName = document.getElementById('gName');
 //'guestCountry' variable stores the data from HTML using 'gCountry' ID, which is used for user input purposes
 const guestCountry = document.getElementById('gCountry');
 //'welcomeButton' variable stores the data from HTML using 'btn3' ID, so I can use it in my script
 const welcomeButton = document.getElementById('btn3');
+
+//'welcomeButton' will listen to 'btn3' once it is clicked and execute what is inside the callback function
+welcomeButton.addEventListener('click', function(){
+  //'removeEl3' is a variable that stores a collection of all Div elements with the 'wel-div' class
+  let removeEl3 = document.getElementsByClassName('wel-div');
+  //Using the spread operator [...], convert the HTML collection into an array
+  //Then using the forEach loop, it removes each element from the DOM
+  //DOM is the Data Object Model, which, in other words, is a 'map' that JavaScript uses to read or modify the page
+  [...removeEl3].forEach(el => el.remove());
+
+  //It's an 'if' clause that checks the given condition, whether it meets the criteria or not
+  //If it fulfills the condition, it returns output as stated in 'createP2' function
+  //'guestName.value.trim()' and 'guestCountry.value.trim()' take the values from the corresponding text fields 'gName' and 'gCountry'
+  //After trimming, if both 'gName' and 'gCountry' are empty, it will send the following prompt
+  //'createP2' is a function that processes the request once 'welcomeButton' executes its callback function
+  if(!guestName.value.trim() && !guestCountry.value.trim()) { //.trim will eliminate any spaces
+    createP2('<b><i>Please ENTER your Name and Country you are from.</i></b>')
+  }
+    //Else, it returns the below output
+  //This returns 'message' parameter to 'createP2' function to execute the request
+  else {
+    createP2('Welcome <b><i>' + guestName.value + '</i></b>!') //<b><i> are used to make the Bold and Italic
+    createP2('We are really thrilled to know that you are coming all the way from <b><i>' + guestCountry.value + '</i></b> to visit our amazing beach!')
+    createP2('It’s an honor to have you here.')
+    createP2('We sincerely hope you have a pleasant experience.')
+  }
+})
 
 //Created a 'createP2' function, which will execute the following tasks once it's called upon
 //'message' in 'createP2' function is a parameter that acts as a placeholder which holds the value passed into the function once it's called
@@ -35,40 +63,38 @@ function createP2(message) {
   document.body.appendChild(welcomeDiv);
 }
 
-//'welcomeButton' will listen to 'btn3' once it is clicked and execute what is inside the callback function
-welcomeButton.addEventListener('click', function(){
-  //'removeEl3' is a variable that stores a collection of all Div elements with the 'wel-div' class
-  let removeEl3 = document.getElementsByClassName('wel-div');
-  //Using the spread operator [...], convert the HTML collection into an array
-  //Then using the forEach loop, it removes each element from the DOM
-  //DOM is the Data Object Model, which, in other words, is a 'map' that JavaScript uses to read or modify the page
-  [...removeEl3].forEach(el => el.remove());
 
-  //It's an 'if' clause that checks the given condition, whether it meets the criteria or not
-  //If it fulfills the condition, it returns output as stated in 'createP2' function
-  //'guestName.value.trim()' and 'guestCountry.value.trim()' take the values from the corresponding text fields 'gName' and 'gCountry'
-  //After trimming, if both 'gName' and 'gCountry' are empty, it will send the following prompt
-  //'createP2' is a function that processes the request once 'welcomeButton' executes its callback function
-  if(!guestName.value.trim() && !guestCountry.value.trim()) { //.trim will eliminate any spaces
-    createP2('<b><i>Please ENTER your Name and Country you are from.</i></b>')
-  }
-  //Else, it returns the below output
-  //This returns 'message' parameter to 'createP2' function to execute the request
-  else {
-    createP2('Welcome <b><i>' + guestName.value + '</i></b>!') //<b><i> are used to make the Bold and Italic
-    createP2('We are really thrilled to know that you are coming all the way from <b><i>' + guestCountry.value + '</i></b> to visit our amazing beach!')
-    createP2('It’s an honor to have you here.')
-    createP2('We sincerely hope you have a pleasant experience.')
-  }
-})
+//Availability of Room section---
 
-//Availability of Room section
 //'roomAccom' variable stores the size of the room as a list
 const roomAccom = [1,2,3,4]
 //'numGuests' variable stores the data from HTMl using 'nGuest' ID, which is used input purposes
 const numGuests = document.getElementById('nGuest')
 //'tNGuest' variable stores the data from HTML using 'btn2' ID, so I can use it in my script
 const tNGuest = document.getElementById('btn2')
+
+//'tNGuest' will listen to 'btn2' once it is clicked and execute what is inside the callback function
+tNGuest.addEventListener('click', function(){
+  //'removeEl2' is a variable that stores a collection of all Div elements with the 'guest-number' class
+  let removeEl2 = document.getElementsByClassName('guest-number');
+  //Using the spread operator [...], convert the HTML collection into an array
+  //Then using the forEach loop, it removes each element from the DOM
+  //DOM is the Data Object Model, which, in other words, is a 'map' that JavaScript uses to read or modify the page
+  [...removeEl2].forEach(el => el.remove());
+
+  //I used 'if-else' condition to display correct output
+  //!numGuests.value.trim() - it will check if the user entered any input or not
+  //trim() removes the spaces
+  //Depending on which condition meets the requirement, string in createP1 will be displayed
+  if(!numGuests.value.trim()) {
+    createP1('<b><i>Please ENTER total number of guests</i></b>')
+  }
+  else {
+    createP1('<b><i><u>Availability of Room</u></i></b>')
+    //This returns 'numGuests' parameter to 'gQuantity' function to execute the request
+    gQuantity(numGuests.value);
+  }
+})
 
 //Created a 'gQuantity' function, which will execute the following tasks once it's called upon
 //'num_val' in 'gQuantity' function is a parameter that acts as a placeholder which holds the value passed into the function once it's called
@@ -116,36 +142,37 @@ function createP1(number) {
   document.body.appendChild(tGuest);
 }
 
-//'tNGuest' will listen to 'btn2' once it is clicked and execute what is inside the callback function
-tNGuest.addEventListener('click', function(){
-  //'removeEl2' is a variable that stores a collection of all Div elements with the 'guest-number' class
-  let removeEl2 = document.getElementsByClassName('guest-number');
-  //Using the spread operator [...], convert the HTML collection into an array
-  //Then using the forEach loop, it removes each element from the DOM
-  //DOM is the Data Object Model, which, in other words, is a 'map' that JavaScript uses to read or modify the page
-  [...removeEl2].forEach(el => el.remove());
 
-  //I used 'if-else' condition to display correct output
-  //!numGuests.value.trim() - it will check if the user entered any input or not
-  //trim() removes the spaces
-  //Depending on which condition meets the requirement, string in createP1 will be displayed
-  if(!numGuests.value.trim()) {
-    createP1('<b><i>Please ENTER total number of guests</i></b>')
-  }
-  else {
-    createP1('<b><i><u>Availability of Room</u></i></b>')
-    //This returns 'numGuests' parameter to 'gQuantity' function to execute the request
-    gQuantity(numGuests.value);
-  }
-})
+//Hotel - Resort Section---
 
-//Hotel - Resort Section
 //'accomm' variable stores the data from HTMl using 'accom' ID
 let accomm = document.getElementById('accom')
 //'availPoss' variable stores the number of rooms available as a list
 const availPoss = [1,2,3,4,5,6,7,8,9,10,11]
 //'hrButton' variable stores the data from HTML using 'btn2' ID, so I can use it in my script
 const hrButton = document.getElementById('btn1')
+
+hrButton.addEventListener('click', function(){
+//'hrButton' will listen to 'btn1' once it is clicked and execute what is inside the callback function
+  //'hotelCh' and 'resortCh' are two variables those store values from 'check1' and 'check2' IDs
+  //'.checked' - it returns true if it is checked else false
+  let hotelCh = document.getElementById('check1').checked;
+  let resortCh = document.getElementById('check2').checked;
+
+  //'removeEl1' is a variable that stores a collection of all Div elements with the 'accom-avail' class
+  let removeEl1 = document.getElementsByClassName('accom-avail');
+  //Using the spread operator [...], convert the HTML collection into an array
+  //Then using the 'forEach' loop, it removes each element from the DOM
+  //DOM is the Data Object Model, which, in other words, is a 'map' that JavaScript uses to read or modify the page
+  [...removeEl1].forEach((el) => el.remove());
+
+  //Once 'btn1' button is clicked 'hrButton' event listener will execute the callback function
+  //Within the function, 'createP' and 'accomAvail' functions are called
+  //'createP' function will print the below message
+  //'accomAvail' function will take the inputs in 'hotelCh' and 'resortCh' and executes
+  createP('<b><i><u>Hotel - Resort Section</u></i></b>')
+  accomAvail(hotelCh, resortCh);
+})
 
 //Created a 'accomAvail' function, which will execute the following tasks once it's called upon
 //'accomAvail' function can take parameters ('hCh' and 'rCh') those acts as a placeholder which holds the value passed into the function once it's called
@@ -187,25 +214,3 @@ function createP(string) {
   //Once 'childP' gets the 'string' parameter, it is then added to the 'accomm', which is a 'div' element
   accomm.appendChild(childP);
 }
-
-//'hrButton' will listen to 'btn1' once it is clicked and execute what is inside the callback function
-hrButton.addEventListener('click', function(){
-  //'hotelCh' and 'resortCh' are two variables those store values from 'check1' and 'check2' IDs
-  //'.checked' - it returns true if it is checked else false
-  let hotelCh = document.getElementById('check1').checked;
-  let resortCh = document.getElementById('check2').checked;
-
-  //'removeEl1' is a variable that stores a collection of all Div elements with the 'accom-avail' class
-  let removeEl1 = document.getElementsByClassName('accom-avail');
-  //Using the spread operator [...], convert the HTML collection into an array
-  //Then using the 'forEach' loop, it removes each element from the DOM
-  //DOM is the Data Object Model, which, in other words, is a 'map' that JavaScript uses to read or modify the page
-  [...removeEl1].forEach((el) => el.remove());
-
-  //Once 'btn1' button is clicked 'hrButton' event listener will execute the callback function
-  //Within the function, 'createP' and 'accomAvail' functions are called
-  //'createP' function will print the below message
-  //'accomAvail' function will take the inputs in 'hotelCh' and 'resortCh' and executes
-  createP('<b><i><u>Hotel - Resort Section</u></i></b>')
-  accomAvail(hotelCh, resortCh);
-})
