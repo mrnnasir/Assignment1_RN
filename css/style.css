@@ -75,9 +75,12 @@ h1 {
   width: 15%;
 }
 
-.footer {
+footer {
   text-align: center;
+  font-style: italic;
 }
+
+
 
 .description {
   color: black;

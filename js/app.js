@@ -45,7 +45,7 @@ welcomeButton.addEventListener('click', function(){
 //Created a 'createP2' function, which will execute the following tasks once it's called upon
 //'message' in 'createP2' function is a parameter that acts as a placeholder which holds the value passed into the function once it's called
 function createP2(message) {
-  //'welcomeDiv' variable stores newly crated 'div' element that can be added in the HTML
+  //'welcomeDiv' variable stores newly created 'div' element that can be added in the HTML
   let welcomeDiv = document.createElement('div'); //Created a Div
   //'wel-div' is a newly created class to the 'div' element
   //'wel-div' can be used for styling in style.css
@@ -60,7 +60,7 @@ function createP2(message) {
   //Once 'welcomeP' gets the 'message' parameter, it is then added to the 'welcomeDiv', which is a 'div' element
   welcomeDiv.appendChild(welcomeP);
   //Newly created 'welcomeDiv' element needs to be added to the body of the HTML file
-  document.body.appendChild(welcomeDiv);
+  accomm.appendChild(welcomeDiv);
 }
 
 
@@ -139,7 +139,7 @@ function createP1(number) {
   //Once 'totalGuest' gets the 'message' parameter, it is then added to the 'tGuest', which is a 'div' element
   tGuest.appendChild(totalGuest);
   //Newly created 'tGuest' element needs to be added to the body of the HTML file
-  document.body.appendChild(tGuest);
+  accomm.appendChild(tGuest);
 }
 
 
