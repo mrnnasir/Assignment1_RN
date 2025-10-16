@@ -16,12 +16,12 @@ HTML links with CSS using <link rel="stylesheet" href="style.css"> and with Java
 
 ## 3. The Role Each File Plays in the Platform
 
-HTML:
+<b>HTML:</b>
 This is the skeleton of the webpage. It contains various elements like, head, body, footer. It also includes button, class, ID, div, paragraph etc.
 
-CSS:
+<b>CSS:</b>
 This determines the design and layout of the webpage. What color, fonts, spacing etc. should be used in which section or part of the webpage.
 
-JavaScript:
+<b>JavaScript:</b>
 This is the brain that determines the behavior or the logic for the webpage. What prompt should be given if button is clicked or user input is taken, or interact with other functions or create or modify elements within HTML file, assign class or ID etc.
 Basically, it makes the webpage interactive and dynamic.
