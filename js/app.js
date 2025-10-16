@@ -32,7 +32,14 @@ welcomeButton.addEventListener('click', function(){
   if(!guestName.value.trim() && !guestCountry.value.trim()) { //.trim will eliminate any spaces
     createP2('<b><i>Please ENTER your Name and Country you are from.</i></b>')
   }
-    //Else, it returns the below output
+  //If 'gCountry' is empty, it will send the following prompt
+  //This returns 'message' parameter to 'createP2' function to execute the request
+  else if(!guestCountry.value.trim()) {
+    createP2('Welcome <b><i>' + guestName.value + '</i></b>!') //<b><i> are used to make the Bold and Italic
+    createP2('It’s an honor to have you here.')
+    createP2('We sincerely hope you have a pleasant experience.')
+  }
+  //Else, it returns the below output
   //This returns 'message' parameter to 'createP2' function to execute the request
   else {
     createP2('Welcome <b><i>' + guestName.value + '</i></b>!') //<b><i> are used to make the Bold and Italic
